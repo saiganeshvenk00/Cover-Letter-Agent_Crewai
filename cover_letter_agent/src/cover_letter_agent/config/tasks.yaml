@@ -1,0 +1,36 @@
+company_research_task:
+  description: >
+    Research the company {company} and role {role}.
+
+    Focus on:
+    - What the company does (short summary)
+    - Industry or product keywords
+    - Mission or core focus (if available)
+    - Mention role {role} in the company {company} and find the most relevant information about the role.
+    - Find Keywords for the role {role} in the company {company}.
+
+    Keep it concise and factual.
+  expected_output: >
+    A short structured summary of the company including its business focus,
+    key keywords, and mission or positioning.
+  agent: company_research_agent
+
+cover_letter_task:
+  description: >
+    Write a professional, generic cover letter for the role of {role}
+    at {company}.
+
+    Use the company research if available.
+
+    Requirements:
+    - 3 short paragraphs
+    - 150 to 250 words
+    - Confident and professional tone
+    - Do not invent specific metrics, years of experience, or past employers
+    - Clearly mention the company name and role
+    - Highlight general strengths like ownership, collaboration,
+      execution, adaptability, and problem-solving
+       use my current designation: {current_designation} as signature
+  expected_output: >
+    A complete cover letter ready for submission.
+  agent: cover_letter_writer_agent
