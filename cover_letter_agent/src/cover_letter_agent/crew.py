@@ -2,6 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
+from crewai_tools import SerperDevTool
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -38,16 +39,16 @@ class CoverLetterCrew():
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def company_research_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['company_research_task'], # type: ignore[index]
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def cover_letter_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['cover_letter_task'], # type: ignore[index]
+            output_file='output/cover_letter.md'
         )
 
     @crew
