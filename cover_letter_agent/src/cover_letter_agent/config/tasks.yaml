@@ -33,12 +33,11 @@ cover_letter_task:
     - Clearly mention the company name and role
     - Highlight general strengths like ownership, collaboration,
       execution, adaptability, and problem-solving
-       use my current designation: {current_designation} as signature
   expected_output: >
     A complete cover letter ready for submission.
   agent: cover_letter_writer_agent
-  context: >
-    {company_research_task}
+  context:
+    - company_research_task
   
   output_file: output/cover_letter.md
   
