@@ -9,18 +9,21 @@ company_research_task:
     - Mention role {role} in the company {company} and find the most relevant information about the role.
     - Find Keywords for the role {role} in the company {company}.
 
-    Keep it concise and factual.
+generate a markdown file with the following format:
+
   expected_output: >
-    A short structured summary of the company including its business focus,
-    key keywords, and mission or positioning.
+    A markdown file with the following format:
+    # Company Research
+    ## Company Summary
+    ## Industry Keywords
+    ## Mission or Core Focus
+    ## Role Information
+    ## Keywords for the Role
   agent: company_research_agent
 
 cover_letter_task:
   description: >
-    Write a professional, generic cover letter for the role of {role}
-    at {company}.
-
-    Use the company research if available.
+    Analyze research findings and write a professional, generic cover letter for the role of {role} at {company}.
 
     Requirements:
     - 3 short paragraphs
@@ -34,3 +37,8 @@ cover_letter_task:
   expected_output: >
     A complete cover letter ready for submission.
   agent: cover_letter_writer_agent
+  context: >
+    {company_research_task}
+  
+  output_file: output/cover_letter.md
+  
